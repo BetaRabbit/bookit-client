@@ -1,0 +1,69 @@
+.app {
+  text-align: center;
+}
+
+.app-header {
+  position: fixed;
+}
+
+.main-content {
+ padding: 64px 10px;
+}
+
+a, a:active, a:link, a:visited {
+  text-decoration: none;
+  color: #0066c0
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #c45500
+}
+
+.book-list-message {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.book-item-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.book-item-container img {
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+}
+
+.book-item-container .info {
+  width: 550px;
+  height: 150px;
+  position: relative;
+  text-align: left;
+  font-family: 'Hiragino Sans GB', 'Microsoft Yahei', 'Roboto', sans-serif;
+}
+
+.book-item-container .info h4 {
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.book-item-container .info .author,
+.book-item-container .info .publisher {
+  font-size: 12px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.book-item-container .info .price {
+  font-size: 24px;
+  color: #b12704;
+  position: absolute;
+  top: 110px;
+}
+
+.book-item-container .action {
+  width: 50px;
+}
