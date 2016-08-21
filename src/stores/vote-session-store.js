@@ -11,6 +11,18 @@ class VoteSessionStore {
       voteSessionList: [],
       currentVoteSession: null,
       error: null,
+
+      currentVoteSessionTotalPrice: () => {
+        let total = 0;
+
+        if (this.currentVoteSession) {
+          for (const book of this.currentVoteSession.books) {
+            total += parseFloat(book.price);
+          }
+        }
+
+        return total.toFixed(2);
+      },
     });
   }
 

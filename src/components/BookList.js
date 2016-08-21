@@ -1,15 +1,40 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import Book from './Book';
 
 function BookList(props) {
-  if (!props.books.length) {
+  const { viewState, books } = props;
+  if (!books.length) {
     return <h2 className="book-list-message">No books here, try to add some?</h2>
   }
-  return <div>
-    {props.books.map(book => <Book key={book.id} book={book} />)}
-  </div>
+
+
+  if (viewState.bookListOrder === viewState.BOOK_LIST_ORDER_LIKE) {
+    return (
+      <div>
+        {books.sort((a, b) => (b.votes.length - a.votes.length))
+          .map(book => <Book key={book.id} book={book} />)}
+      </div>
+    );
+  }
+
+  if (viewState.bookListOrder === viewState.BOOK_LIST_ORDER_PRICE) {
+    return (
+      <div>
+        {books.sort((a, b) => (parseFloat(b.price) - parseFloat(a.price)))
+          .map(book => <Book key={book.id} book={book} />)}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      {books.map(book => <Book key={book.id} book={book} />)}
+    </div>
+  );
 }
 
-export default observer(BookList);
+export default inject(
+  'viewState'
+)(observer(BookList));

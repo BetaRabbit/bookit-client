@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
 import TextField from 'material-ui/TextField';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import NavUp from 'material-ui/svg-icons/navigation/arrow-upward';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import FormatLineSpacing from 'material-ui/svg-icons/editor/format-line-spacing';
 import Snackbar from 'material-ui/Snackbar';
 
 import SearchDialog from './SearchDialog';
@@ -54,7 +58,7 @@ class VoteSession extends Component {
   }
 
   renderVoteSession(vs) {
-    const { viewState } = this.props;
+    const { viewState, voteSessionStore } = this.props;
 
     return (
       <div>
@@ -74,6 +78,28 @@ class VoteSession extends Component {
             style={this.css.addBtn}
             onClick={this.handleGetClick}
           />
+        </div>
+        <div className="book-list-action">
+          <span
+            className="book-list-total-price"
+          >Total: ¥{voteSessionStore.currentVoteSessionTotalPrice}</span>
+          <IconMenu
+            className="book-list-menu"
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          >
+            <MenuItem
+              primaryText="Sort by like"
+              leftIcon={<FormatLineSpacing />}
+              onTouchTap={viewState.sortBookListByLike}
+            />
+            <MenuItem
+              primaryText="Sort by price"
+              leftIcon={<FormatLineSpacing />}
+              onTouchTap={viewState.sortBookListByPrice}
+            />
+          </IconMenu>
         </div>
         <BookList books={vs.books} />
         <SearchDialog />

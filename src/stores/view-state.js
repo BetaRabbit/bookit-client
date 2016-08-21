@@ -1,7 +1,10 @@
 import { extendObservable, action } from 'mobx';
+import bookStore from './book-store';
 
 class ViewState {
-  jdUrlPattern = /^http[s]?:\/\/item\.jd\.com\/\w+\.html$/;
+  jdUrlPattern = /^http[s]?:\/\/item\.jd\.com\/\w+\.html/;
+  BOOK_LIST_ORDER_LIKE = 'BOOK_LIST_ORDER_LIKE';
+  BOOK_LIST_ORDER_PRICE = 'BOOK_LIST_ORDER_PRICE';
 
   constructor() {
     extendObservable(this, {
@@ -12,6 +15,8 @@ class ViewState {
       snackbarMessage: '',
       localVotes: [],
       scrollY: 0,
+      bookListOrder: '',
+
       urlFieldValid: () => {
         const url = this.urlFieldValue.trim();
         return this.jdUrlPattern.test(url);
@@ -61,6 +66,7 @@ class ViewState {
 
   handleSearchDialogClose = action('close-search-dialog', () => {
     this.searchDialogOpen = false;
+    bookStore.currentBook = null;
   });
 
   getLocalVotes = action('get-local-votes', () => {
@@ -75,6 +81,14 @@ class ViewState {
   handleScroll = action('scroll', e => {
     this.scrollY = window.scrollY;
   });
+
+  sortBookListByLike = action('sort-book-by-like', e => {
+    this.bookListOrder = this.BOOK_LIST_ORDER_LIKE;
+  });
+
+  sortBookListByPrice = action('sort-book-by-price', e => {
+    this.bookListOrder = this.BOOK_LIST_ORDER_PRICE;
+  })
 }
 
 export default new ViewState();

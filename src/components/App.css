@@ -25,6 +25,25 @@ a:hover {
   color: rgba(0, 0, 0, 0.3);
 }
 
+.book-list-action {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.book-list-total-price {
+  font-size: 24px;
+  color: #b12704;
+  box-sizing: border-box;
+  width: 700px;
+  padding-left: 25px;
+}
+
+.book-list-menu {
+  width: 50px;
+}
+
 .book-item-container {
   display: flex;
   justify-content: center;
