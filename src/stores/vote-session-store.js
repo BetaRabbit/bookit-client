@@ -39,7 +39,7 @@ class VoteSessionStore {
       }))
       .catch(action('load-voteSessionList-failure', error => {
         this.error = error;
-        viewState.setSnackbarMessage(`Failed to get wish list: ${error.message}`);
+        viewState.setSnackbarMessage(`Failed to get order list: ${error.message}`);
         viewState.handleSnackbarOpen();
       }));
   });
