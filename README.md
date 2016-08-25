@@ -1,5 +1,13 @@
-# bookit client
+# Book your books
 
-the client for Bookit.
+Manage your team's book orders easily.
+- Fetch book info from www.jd.com, including title, price, publisher and author
+- Capabale of maintain multiple book order lists
+- Feeling like a book, too? just give it your like :)
 
-Powered by React, Mobx, Material-UI
+> This is just the client side of Bookit.
+> Refer https://github.com/BetaRabbit/bookit for the server side implementation.
+
+> Powered by React, Mobx and Material-UI.
+
+> Special thanks to www.jd.com
