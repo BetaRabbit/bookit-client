@@ -8,6 +8,6 @@ Manage your team's book orders easily.
 > This is just the client side of Bookit.
 > Refer https://github.com/BetaRabbit/bookit for the server side implementation.
 
-> Powered by React, Mobx and Material-UI.
+> Powered by [React](https://github.com/facebook/react), [MobX](https://github.com/mobxjs/mobx) and [Material-UI](https://github.com/callemall/material-ui).
 
 > Special thanks to www.jd.com
