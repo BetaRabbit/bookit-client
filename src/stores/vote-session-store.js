@@ -32,7 +32,7 @@ class VoteSessionStore {
         this.voteSessionList = voteSessionData;
 
         if (voteSessionData.length) {
-          this.currentVoteSession = voteSessionData[0];
+          this.currentVoteSession = voteSessionData[voteSessionData.length - 1];
         }
 
         this.error = null;
